@@ -929,7 +929,7 @@ class ct01_nasabah_edit extends ct01_nasabah {
 			$this->Alamat->SetDbValueDef($rsnew, $this->Alamat->CurrentValue, "", $this->Alamat->ReadOnly);
 
 			// No_Telp_Hp
-			$this->No_Telp_Hp->SetDbValueDef($rsnew, $this->No_Telp_Hp->CurrentValue, 0, $this->No_Telp_Hp->ReadOnly);
+			$this->No_Telp_Hp->SetDbValueDef($rsnew, $this->No_Telp_Hp->CurrentValue, "", $this->No_Telp_Hp->ReadOnly);
 
 			// Pekerjaan
 			$this->Pekerjaan->SetDbValueDef($rsnew, $this->Pekerjaan->CurrentValue, "", $this->Pekerjaan->ReadOnly);

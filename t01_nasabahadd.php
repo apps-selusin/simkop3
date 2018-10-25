@@ -848,7 +848,7 @@ class ct01_nasabah_add extends ct01_nasabah {
 		$this->Alamat->SetDbValueDef($rsnew, $this->Alamat->CurrentValue, "", FALSE);
 
 		// No_Telp_Hp
-		$this->No_Telp_Hp->SetDbValueDef($rsnew, $this->No_Telp_Hp->CurrentValue, 0, FALSE);
+		$this->No_Telp_Hp->SetDbValueDef($rsnew, $this->No_Telp_Hp->CurrentValue, "", FALSE);
 
 		// Pekerjaan
 		$this->Pekerjaan->SetDbValueDef($rsnew, $this->Pekerjaan->CurrentValue, "", FALSE);

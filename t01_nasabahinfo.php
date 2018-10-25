@@ -68,7 +68,7 @@ class ct01_nasabah extends cTable {
 		$this->fields['Alamat'] = &$this->Alamat;
 
 		// No_Telp_Hp
-		$this->No_Telp_Hp = new cField('t01_nasabah', 't01_nasabah', 'x_No_Telp_Hp', 'No_Telp_Hp', '`No_Telp_Hp`', '`No_Telp_Hp`', 3, -1, FALSE, '`No_Telp_Hp`', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
+		$this->No_Telp_Hp = new cField('t01_nasabah', 't01_nasabah', 'x_No_Telp_Hp', 'No_Telp_Hp', '`No_Telp_Hp`', '`No_Telp_Hp`', 200, -1, FALSE, '`No_Telp_Hp`', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
 		$this->No_Telp_Hp->Sortable = TRUE; // Allow sort
 		$this->No_Telp_Hp->FldDefaultErrMsg = $Language->Phrase("IncorrectInteger");
 		$this->fields['No_Telp_Hp'] = &$this->No_Telp_Hp;
