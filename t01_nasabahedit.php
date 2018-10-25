@@ -863,9 +863,6 @@ class ct01_nasabah_edit extends ct01_nasabah {
 		if (!$this->No_Telp_Hp->FldIsDetailKey && !is_null($this->No_Telp_Hp->FormValue) && $this->No_Telp_Hp->FormValue == "") {
 			ew_AddMessage($gsFormError, str_replace("%s", $this->No_Telp_Hp->FldCaption(), $this->No_Telp_Hp->ReqErrMsg));
 		}
-		if (!ew_CheckInteger($this->No_Telp_Hp->FormValue)) {
-			ew_AddMessage($gsFormError, $this->No_Telp_Hp->FldErrMsg());
-		}
 		if (!$this->Pekerjaan->FldIsDetailKey && !is_null($this->Pekerjaan->FormValue) && $this->Pekerjaan->FormValue == "") {
 			ew_AddMessage($gsFormError, str_replace("%s", $this->Pekerjaan->FldCaption(), $this->Pekerjaan->ReqErrMsg));
 		}
@@ -1165,9 +1162,6 @@ ft01_nasabahedit.Validate = function() {
 			elm = this.GetElements("x" + infix + "_No_Telp_Hp");
 			if (elm && !ew_IsHidden(elm) && !ew_HasValue(elm))
 				return this.OnError(elm, "<?php echo ew_JsEncode2(str_replace("%s", $t01_nasabah->No_Telp_Hp->FldCaption(), $t01_nasabah->No_Telp_Hp->ReqErrMsg)) ?>");
-			elm = this.GetElements("x" + infix + "_No_Telp_Hp");
-			if (elm && !ew_CheckInteger(elm.value))
-				return this.OnError(elm, "<?php echo ew_JsEncode2($t01_nasabah->No_Telp_Hp->FldErrMsg()) ?>");
 			elm = this.GetElements("x" + infix + "_Pekerjaan");
 			if (elm && !ew_IsHidden(elm) && !ew_HasValue(elm))
 				return this.OnError(elm, "<?php echo ew_JsEncode2(str_replace("%s", $t01_nasabah->Pekerjaan->FldCaption(), $t01_nasabah->Pekerjaan->ReqErrMsg)) ?>");
