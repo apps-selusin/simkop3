@@ -282,11 +282,11 @@ class ct01_nasabah_delete extends ct01_nasabah {
 			$Security->UserID_Loaded();
 		}
 		$this->CurrentAction = (@$_GET["a"] <> "") ? $_GET["a"] : @$_POST["a_list"]; // Set up current action
-		$this->id->SetVisibility();
-		$this->id->Visible = !$this->IsAdd() && !$this->IsCopy() && !$this->IsGridAdd();
 		$this->Nama->SetVisibility();
+		$this->Alamat->SetVisibility();
 		$this->No_Telp_Hp->SetVisibility();
 		$this->Pekerjaan->SetVisibility();
+		$this->Pekerjaan_Alamat->SetVisibility();
 		$this->Pekerjaan_No_Telp_Hp->SetVisibility();
 
 		// Global Page Loading event (in userfn*.php)
@@ -512,6 +512,10 @@ class ct01_nasabah_delete extends ct01_nasabah {
 		$this->Nama->ViewValue = $this->Nama->CurrentValue;
 		$this->Nama->ViewCustomAttributes = "";
 
+		// Alamat
+		$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
+		$this->Alamat->ViewCustomAttributes = "";
+
 		// No_Telp_Hp
 		$this->No_Telp_Hp->ViewValue = $this->No_Telp_Hp->CurrentValue;
 		$this->No_Telp_Hp->ViewCustomAttributes = "";
@@ -520,19 +524,23 @@ class ct01_nasabah_delete extends ct01_nasabah {
 		$this->Pekerjaan->ViewValue = $this->Pekerjaan->CurrentValue;
 		$this->Pekerjaan->ViewCustomAttributes = "";
 
+		// Pekerjaan_Alamat
+		$this->Pekerjaan_Alamat->ViewValue = $this->Pekerjaan_Alamat->CurrentValue;
+		$this->Pekerjaan_Alamat->ViewCustomAttributes = "";
+
 		// Pekerjaan_No_Telp_Hp
 		$this->Pekerjaan_No_Telp_Hp->ViewValue = $this->Pekerjaan_No_Telp_Hp->CurrentValue;
 		$this->Pekerjaan_No_Telp_Hp->ViewCustomAttributes = "";
-
-			// id
-			$this->id->LinkCustomAttributes = "";
-			$this->id->HrefValue = "";
-			$this->id->TooltipValue = "";
 
 			// Nama
 			$this->Nama->LinkCustomAttributes = "";
 			$this->Nama->HrefValue = "";
 			$this->Nama->TooltipValue = "";
+
+			// Alamat
+			$this->Alamat->LinkCustomAttributes = "";
+			$this->Alamat->HrefValue = "";
+			$this->Alamat->TooltipValue = "";
 
 			// No_Telp_Hp
 			$this->No_Telp_Hp->LinkCustomAttributes = "";
@@ -543,6 +551,11 @@ class ct01_nasabah_delete extends ct01_nasabah {
 			$this->Pekerjaan->LinkCustomAttributes = "";
 			$this->Pekerjaan->HrefValue = "";
 			$this->Pekerjaan->TooltipValue = "";
+
+			// Pekerjaan_Alamat
+			$this->Pekerjaan_Alamat->LinkCustomAttributes = "";
+			$this->Pekerjaan_Alamat->HrefValue = "";
+			$this->Pekerjaan_Alamat->TooltipValue = "";
 
 			// Pekerjaan_No_Telp_Hp
 			$this->Pekerjaan_No_Telp_Hp->LinkCustomAttributes = "";
@@ -801,17 +814,20 @@ $t01_nasabah_delete->ShowMessage();
 <?php echo $t01_nasabah->TableCustomInnerHtml ?>
 	<thead>
 	<tr class="ewTableHeader">
-<?php if ($t01_nasabah->id->Visible) { // id ?>
-		<th><span id="elh_t01_nasabah_id" class="t01_nasabah_id"><?php echo $t01_nasabah->id->FldCaption() ?></span></th>
-<?php } ?>
 <?php if ($t01_nasabah->Nama->Visible) { // Nama ?>
 		<th><span id="elh_t01_nasabah_Nama" class="t01_nasabah_Nama"><?php echo $t01_nasabah->Nama->FldCaption() ?></span></th>
+<?php } ?>
+<?php if ($t01_nasabah->Alamat->Visible) { // Alamat ?>
+		<th><span id="elh_t01_nasabah_Alamat" class="t01_nasabah_Alamat"><?php echo $t01_nasabah->Alamat->FldCaption() ?></span></th>
 <?php } ?>
 <?php if ($t01_nasabah->No_Telp_Hp->Visible) { // No_Telp_Hp ?>
 		<th><span id="elh_t01_nasabah_No_Telp_Hp" class="t01_nasabah_No_Telp_Hp"><?php echo $t01_nasabah->No_Telp_Hp->FldCaption() ?></span></th>
 <?php } ?>
 <?php if ($t01_nasabah->Pekerjaan->Visible) { // Pekerjaan ?>
 		<th><span id="elh_t01_nasabah_Pekerjaan" class="t01_nasabah_Pekerjaan"><?php echo $t01_nasabah->Pekerjaan->FldCaption() ?></span></th>
+<?php } ?>
+<?php if ($t01_nasabah->Pekerjaan_Alamat->Visible) { // Pekerjaan_Alamat ?>
+		<th><span id="elh_t01_nasabah_Pekerjaan_Alamat" class="t01_nasabah_Pekerjaan_Alamat"><?php echo $t01_nasabah->Pekerjaan_Alamat->FldCaption() ?></span></th>
 <?php } ?>
 <?php if ($t01_nasabah->Pekerjaan_No_Telp_Hp->Visible) { // Pekerjaan_No_Telp_Hp ?>
 		<th><span id="elh_t01_nasabah_Pekerjaan_No_Telp_Hp" class="t01_nasabah_Pekerjaan_No_Telp_Hp"><?php echo $t01_nasabah->Pekerjaan_No_Telp_Hp->FldCaption() ?></span></th>
@@ -837,19 +853,19 @@ while (!$t01_nasabah_delete->Recordset->EOF) {
 	$t01_nasabah_delete->RenderRow();
 ?>
 	<tr<?php echo $t01_nasabah->RowAttributes() ?>>
-<?php if ($t01_nasabah->id->Visible) { // id ?>
-		<td<?php echo $t01_nasabah->id->CellAttributes() ?>>
-<span id="el<?php echo $t01_nasabah_delete->RowCnt ?>_t01_nasabah_id" class="t01_nasabah_id">
-<span<?php echo $t01_nasabah->id->ViewAttributes() ?>>
-<?php echo $t01_nasabah->id->ListViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
 <?php if ($t01_nasabah->Nama->Visible) { // Nama ?>
 		<td<?php echo $t01_nasabah->Nama->CellAttributes() ?>>
 <span id="el<?php echo $t01_nasabah_delete->RowCnt ?>_t01_nasabah_Nama" class="t01_nasabah_Nama">
 <span<?php echo $t01_nasabah->Nama->ViewAttributes() ?>>
 <?php echo $t01_nasabah->Nama->ListViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($t01_nasabah->Alamat->Visible) { // Alamat ?>
+		<td<?php echo $t01_nasabah->Alamat->CellAttributes() ?>>
+<span id="el<?php echo $t01_nasabah_delete->RowCnt ?>_t01_nasabah_Alamat" class="t01_nasabah_Alamat">
+<span<?php echo $t01_nasabah->Alamat->ViewAttributes() ?>>
+<?php echo $t01_nasabah->Alamat->ListViewValue() ?></span>
 </span>
 </td>
 <?php } ?>
@@ -866,6 +882,14 @@ while (!$t01_nasabah_delete->Recordset->EOF) {
 <span id="el<?php echo $t01_nasabah_delete->RowCnt ?>_t01_nasabah_Pekerjaan" class="t01_nasabah_Pekerjaan">
 <span<?php echo $t01_nasabah->Pekerjaan->ViewAttributes() ?>>
 <?php echo $t01_nasabah->Pekerjaan->ListViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($t01_nasabah->Pekerjaan_Alamat->Visible) { // Pekerjaan_Alamat ?>
+		<td<?php echo $t01_nasabah->Pekerjaan_Alamat->CellAttributes() ?>>
+<span id="el<?php echo $t01_nasabah_delete->RowCnt ?>_t01_nasabah_Pekerjaan_Alamat" class="t01_nasabah_Pekerjaan_Alamat">
+<span<?php echo $t01_nasabah->Pekerjaan_Alamat->ViewAttributes() ?>>
+<?php echo $t01_nasabah->Pekerjaan_Alamat->ListViewValue() ?></span>
 </span>
 </td>
 <?php } ?>

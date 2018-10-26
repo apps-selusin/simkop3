@@ -384,8 +384,6 @@ class ct01_nasabah_view extends ct01_nasabah {
 
 		// Setup export options
 		$this->SetupExportOptions();
-		$this->id->SetVisibility();
-		$this->id->Visible = !$this->IsAdd() && !$this->IsCopy() && !$this->IsGridAdd();
 		$this->Nama->SetVisibility();
 		$this->Alamat->SetVisibility();
 		$this->No_Telp_Hp->SetVisibility();
@@ -861,11 +859,6 @@ class ct01_nasabah_view extends ct01_nasabah {
 		// Pekerjaan_No_Telp_Hp
 		$this->Pekerjaan_No_Telp_Hp->ViewValue = $this->Pekerjaan_No_Telp_Hp->CurrentValue;
 		$this->Pekerjaan_No_Telp_Hp->ViewCustomAttributes = "";
-
-			// id
-			$this->id->LinkCustomAttributes = "";
-			$this->id->HrefValue = "";
-			$this->id->TooltipValue = "";
 
 			// Nama
 			$this->Nama->LinkCustomAttributes = "";
@@ -1440,17 +1433,6 @@ $t01_nasabah_view->ShowMessage();
 <input type="hidden" name="modal" value="1">
 <?php } ?>
 <table class="table table-bordered table-striped ewViewTable">
-<?php if ($t01_nasabah->id->Visible) { // id ?>
-	<tr id="r_id">
-		<td><span id="elh_t01_nasabah_id"><?php echo $t01_nasabah->id->FldCaption() ?></span></td>
-		<td data-name="id"<?php echo $t01_nasabah->id->CellAttributes() ?>>
-<span id="el_t01_nasabah_id">
-<span<?php echo $t01_nasabah->id->ViewAttributes() ?>>
-<?php echo $t01_nasabah->id->ViewValue ?></span>
-</span>
-</td>
-	</tr>
-<?php } ?>
 <?php if ($t01_nasabah->Nama->Visible) { // Nama ?>
 	<tr id="r_Nama">
 		<td><span id="elh_t01_nasabah_Nama"><?php echo $t01_nasabah->Nama->FldCaption() ?></span></td>

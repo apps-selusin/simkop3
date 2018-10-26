@@ -1,9 +1,10 @@
 <?php
 
-// id
 // Nama
+// Alamat
 // No_Telp_Hp
 // Pekerjaan
+// Pekerjaan_Alamat
 // Pekerjaan_No_Telp_Hp
 
 ?>
@@ -12,17 +13,6 @@
 <table id="tbl_t01_nasabahmaster" class="table table-bordered table-striped ewViewTable">
 <?php echo $t01_nasabah->TableCustomInnerHtml ?>
 	<tbody>
-<?php if ($t01_nasabah->id->Visible) { // id ?>
-		<tr id="r_id">
-			<td><?php echo $t01_nasabah->id->FldCaption() ?></td>
-			<td<?php echo $t01_nasabah->id->CellAttributes() ?>>
-<span id="el_t01_nasabah_id">
-<span<?php echo $t01_nasabah->id->ViewAttributes() ?>>
-<?php echo $t01_nasabah->id->ListViewValue() ?></span>
-</span>
-</td>
-		</tr>
-<?php } ?>
 <?php if ($t01_nasabah->Nama->Visible) { // Nama ?>
 		<tr id="r_Nama">
 			<td><?php echo $t01_nasabah->Nama->FldCaption() ?></td>
@@ -30,6 +20,17 @@
 <span id="el_t01_nasabah_Nama">
 <span<?php echo $t01_nasabah->Nama->ViewAttributes() ?>>
 <?php echo $t01_nasabah->Nama->ListViewValue() ?></span>
+</span>
+</td>
+		</tr>
+<?php } ?>
+<?php if ($t01_nasabah->Alamat->Visible) { // Alamat ?>
+		<tr id="r_Alamat">
+			<td><?php echo $t01_nasabah->Alamat->FldCaption() ?></td>
+			<td<?php echo $t01_nasabah->Alamat->CellAttributes() ?>>
+<span id="el_t01_nasabah_Alamat">
+<span<?php echo $t01_nasabah->Alamat->ViewAttributes() ?>>
+<?php echo $t01_nasabah->Alamat->ListViewValue() ?></span>
 </span>
 </td>
 		</tr>
@@ -52,6 +53,17 @@
 <span id="el_t01_nasabah_Pekerjaan">
 <span<?php echo $t01_nasabah->Pekerjaan->ViewAttributes() ?>>
 <?php echo $t01_nasabah->Pekerjaan->ListViewValue() ?></span>
+</span>
+</td>
+		</tr>
+<?php } ?>
+<?php if ($t01_nasabah->Pekerjaan_Alamat->Visible) { // Pekerjaan_Alamat ?>
+		<tr id="r_Pekerjaan_Alamat">
+			<td><?php echo $t01_nasabah->Pekerjaan_Alamat->FldCaption() ?></td>
+			<td<?php echo $t01_nasabah->Pekerjaan_Alamat->CellAttributes() ?>>
+<span id="el_t01_nasabah_Pekerjaan_Alamat">
+<span<?php echo $t01_nasabah->Pekerjaan_Alamat->ViewAttributes() ?>>
+<?php echo $t01_nasabah->Pekerjaan_Alamat->ListViewValue() ?></span>
 </span>
 </td>
 		</tr>

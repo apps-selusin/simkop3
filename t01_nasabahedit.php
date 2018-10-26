@@ -286,8 +286,6 @@ class ct01_nasabah_edit extends ct01_nasabah {
 		// Create form object
 		$objForm = new cFormObj();
 		$this->CurrentAction = (@$_GET["a"] <> "") ? $_GET["a"] : @$_POST["a_list"]; // Set up current action
-		$this->id->SetVisibility();
-		$this->id->Visible = !$this->IsAdd() && !$this->IsCopy() && !$this->IsGridAdd();
 		$this->Nama->SetVisibility();
 		$this->Alamat->SetVisibility();
 		$this->No_Telp_Hp->SetVisibility();
@@ -565,8 +563,6 @@ class ct01_nasabah_edit extends ct01_nasabah {
 
 		// Load from form
 		global $objForm;
-		if (!$this->id->FldIsDetailKey)
-			$this->id->setFormValue($objForm->GetValue("x_id"));
 		if (!$this->Nama->FldIsDetailKey) {
 			$this->Nama->setFormValue($objForm->GetValue("x_Nama"));
 		}
@@ -585,6 +581,8 @@ class ct01_nasabah_edit extends ct01_nasabah {
 		if (!$this->Pekerjaan_No_Telp_Hp->FldIsDetailKey) {
 			$this->Pekerjaan_No_Telp_Hp->setFormValue($objForm->GetValue("x_Pekerjaan_No_Telp_Hp"));
 		}
+		if (!$this->id->FldIsDetailKey)
+			$this->id->setFormValue($objForm->GetValue("x_id"));
 	}
 
 	// Restore form values
@@ -725,11 +723,6 @@ class ct01_nasabah_edit extends ct01_nasabah {
 		$this->Pekerjaan_No_Telp_Hp->ViewValue = $this->Pekerjaan_No_Telp_Hp->CurrentValue;
 		$this->Pekerjaan_No_Telp_Hp->ViewCustomAttributes = "";
 
-			// id
-			$this->id->LinkCustomAttributes = "";
-			$this->id->HrefValue = "";
-			$this->id->TooltipValue = "";
-
 			// Nama
 			$this->Nama->LinkCustomAttributes = "";
 			$this->Nama->HrefValue = "";
@@ -760,12 +753,6 @@ class ct01_nasabah_edit extends ct01_nasabah {
 			$this->Pekerjaan_No_Telp_Hp->HrefValue = "";
 			$this->Pekerjaan_No_Telp_Hp->TooltipValue = "";
 		} elseif ($this->RowType == EW_ROWTYPE_EDIT) { // Edit row
-
-			// id
-			$this->id->EditAttrs["class"] = "form-control";
-			$this->id->EditCustomAttributes = "";
-			$this->id->EditValue = $this->id->CurrentValue;
-			$this->id->ViewCustomAttributes = "";
 
 			// Nama
 			$this->Nama->EditAttrs["class"] = "form-control";
@@ -804,12 +791,8 @@ class ct01_nasabah_edit extends ct01_nasabah {
 			$this->Pekerjaan_No_Telp_Hp->PlaceHolder = ew_RemoveHtml($this->Pekerjaan_No_Telp_Hp->FldCaption());
 
 			// Edit refer script
-			// id
-
-			$this->id->LinkCustomAttributes = "";
-			$this->id->HrefValue = "";
-
 			// Nama
+
 			$this->Nama->LinkCustomAttributes = "";
 			$this->Nama->HrefValue = "";
 
@@ -1277,18 +1260,6 @@ $t01_nasabah_edit->ShowMessage();
 <input type="hidden" name="modal" value="1">
 <?php } ?>
 <div>
-<?php if ($t01_nasabah->id->Visible) { // id ?>
-	<div id="r_id" class="form-group">
-		<label id="elh_t01_nasabah_id" class="col-sm-2 control-label ewLabel"><?php echo $t01_nasabah->id->FldCaption() ?></label>
-		<div class="col-sm-10"><div<?php echo $t01_nasabah->id->CellAttributes() ?>>
-<span id="el_t01_nasabah_id">
-<span<?php echo $t01_nasabah->id->ViewAttributes() ?>>
-<p class="form-control-static"><?php echo $t01_nasabah->id->EditValue ?></p></span>
-</span>
-<input type="hidden" data-table="t01_nasabah" data-field="x_id" name="x_id" id="x_id" value="<?php echo ew_HtmlEncode($t01_nasabah->id->CurrentValue) ?>">
-<?php echo $t01_nasabah->id->CustomMsg ?></div></div>
-	</div>
-<?php } ?>
 <?php if ($t01_nasabah->Nama->Visible) { // Nama ?>
 	<div id="r_Nama" class="form-group">
 		<label id="elh_t01_nasabah_Nama" for="x_Nama" class="col-sm-2 control-label ewLabel"><?php echo $t01_nasabah->Nama->FldCaption() ?><?php echo $Language->Phrase("FieldRequiredIndicator") ?></label>
@@ -1350,6 +1321,7 @@ $t01_nasabah_edit->ShowMessage();
 	</div>
 <?php } ?>
 </div>
+<input type="hidden" data-table="t01_nasabah" data-field="x_id" name="x_id" id="x_id" value="<?php echo ew_HtmlEncode($t01_nasabah->id->CurrentValue) ?>">
 <?php
 	if (in_array("t02_jaminan", explode(",", $t01_nasabah->getCurrentDetailTable())) && $t02_jaminan->DetailEdit) {
 ?>

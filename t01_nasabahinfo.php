@@ -824,7 +824,6 @@ class ct01_nasabah extends cTable {
 			if ($Doc->Horizontal) { // Horizontal format, write header
 				$Doc->BeginExportRow();
 				if ($ExportPageType == "view") {
-					if ($this->id->Exportable) $Doc->ExportCaption($this->id);
 					if ($this->Nama->Exportable) $Doc->ExportCaption($this->Nama);
 					if ($this->Alamat->Exportable) $Doc->ExportCaption($this->Alamat);
 					if ($this->No_Telp_Hp->Exportable) $Doc->ExportCaption($this->No_Telp_Hp);
@@ -834,8 +833,10 @@ class ct01_nasabah extends cTable {
 				} else {
 					if ($this->id->Exportable) $Doc->ExportCaption($this->id);
 					if ($this->Nama->Exportable) $Doc->ExportCaption($this->Nama);
+					if ($this->Alamat->Exportable) $Doc->ExportCaption($this->Alamat);
 					if ($this->No_Telp_Hp->Exportable) $Doc->ExportCaption($this->No_Telp_Hp);
 					if ($this->Pekerjaan->Exportable) $Doc->ExportCaption($this->Pekerjaan);
+					if ($this->Pekerjaan_Alamat->Exportable) $Doc->ExportCaption($this->Pekerjaan_Alamat);
 					if ($this->Pekerjaan_No_Telp_Hp->Exportable) $Doc->ExportCaption($this->Pekerjaan_No_Telp_Hp);
 				}
 				$Doc->EndExportRow();
@@ -868,7 +869,6 @@ class ct01_nasabah extends cTable {
 				if (!$Doc->ExportCustom) {
 					$Doc->BeginExportRow($RowCnt); // Allow CSS styles if enabled
 					if ($ExportPageType == "view") {
-						if ($this->id->Exportable) $Doc->ExportField($this->id);
 						if ($this->Nama->Exportable) $Doc->ExportField($this->Nama);
 						if ($this->Alamat->Exportable) $Doc->ExportField($this->Alamat);
 						if ($this->No_Telp_Hp->Exportable) $Doc->ExportField($this->No_Telp_Hp);
@@ -878,8 +878,10 @@ class ct01_nasabah extends cTable {
 					} else {
 						if ($this->id->Exportable) $Doc->ExportField($this->id);
 						if ($this->Nama->Exportable) $Doc->ExportField($this->Nama);
+						if ($this->Alamat->Exportable) $Doc->ExportField($this->Alamat);
 						if ($this->No_Telp_Hp->Exportable) $Doc->ExportField($this->No_Telp_Hp);
 						if ($this->Pekerjaan->Exportable) $Doc->ExportField($this->Pekerjaan);
+						if ($this->Pekerjaan_Alamat->Exportable) $Doc->ExportField($this->Pekerjaan_Alamat);
 						if ($this->Pekerjaan_No_Telp_Hp->Exportable) $Doc->ExportField($this->Pekerjaan_No_Telp_Hp);
 					}
 					$Doc->EndExportRow();
