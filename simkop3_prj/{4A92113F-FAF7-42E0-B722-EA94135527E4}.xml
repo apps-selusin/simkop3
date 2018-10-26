@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <configuration date="2018/10/26" author="e.World Technology Ltd.">
-  <project id="{4A92113F-FAF7-42E0-B722-EA94135527E4}" file="C:\xampp\htdocs\simkop3\simkop3_prj.pmp" name="simkop3_prj" product="PHPMaker" version="13.0" datetime="2018/10/26 09:56:25" languagefolder="phplang" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0">
+  <project id="{4A92113F-FAF7-42E0-B722-EA94135527E4}" file="C:\xampp\htdocs\simkop3\simkop3_prj.pmp" name="simkop3_prj" product="PHPMaker" version="13.0" datetime="2018/10/26 16:24:51" languagefolder="phplang" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0">
     <table id="cf01_home_php" name="cf01_home.php" caption="Home" userlevel="-2,&quot;Anonymous&quot;,8;0,&quot;Default&quot;,0" priv="1" />
     <table id="t01_nasabah" name="t01_nasabah" caption="Nasabah" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
     <table id="t02_jaminan" name="t02_jaminan" caption="Jaminan" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />

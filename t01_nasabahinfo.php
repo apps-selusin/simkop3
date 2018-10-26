@@ -1092,6 +1092,12 @@ class ct01_nasabah extends cTable {
 		// Enter your code here
 		// To cancel, set return value to FALSE
 
+		echo $this->t02_jaminanList_Count; exit;
+		if ($this->t02_jaminanList_Count == 0) {
+			$this->setFailureMessage($this->t02_jaminanList_Count);
+			$this->setFailureMessage("Data Jaminan harus terisi !");
+			return false;
+		}
 		return TRUE;
 	}
 
